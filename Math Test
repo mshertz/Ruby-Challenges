@@ -1,0 +1,47 @@
+def run_test()
+  i=0
+  correct_count=0
+  begin
+    rand_num_1=rand(13)
+    rand_num_2=rand(13)
+    puts "What is #{rand_num_1} x #{rand_num_2}?"
+    user_input=gets.chomp
+      if user_input.to_i.to_s != user_input
+        puts "#{user_input.to_i.to_s}, #{user_input} -- You didn't give me a number"
+        #puts "You didn't give me a number"
+      else
+        if user_input.to_i==(rand_num_1*rand_num_2)
+        correct_count+=1
+        puts "Good job!"
+   #Here's the elsif for "cat input"
+    #elsif user_input=="cat"
+    #  correct_count+=1
+    #  puts "Judges?  We'll take it!"
+       else puts "Errrrrr"
+       end
+     end
+  i+=1
+  end until i==10
+  percent_right = correct_count.to_f*10
+  if percent_right>70.0
+  puts "You got #{percent_right} % right!  You passed!"
+  else puts "You got #{percent_right} % right, get back to school"
+  end
+end
+
+def test_again()
+  puts "Do you want to go through this nightmare of mathematics again?"
+  user_input=gets.chomp.downcase
+  if user_input=="yes"
+   run_test
+  elsif user_input=="no"
+    prints "Okay see ya"
+  else
+    puts "I'll take that as a yes?"
+    run_test
+  end
+end
+
+run_test
+
+test_again
